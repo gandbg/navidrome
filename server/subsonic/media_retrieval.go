@@ -110,7 +110,7 @@ func (c *MediaRetrievalController) GetLyrics(w http.ResponseWriter, r *http.Requ
 	lyrics.Artist = artist
 	lyrics.Title = title
 
-	if isSynced(media_files[0].Lyrics) {
+	if (conf.Server.SendUnsyncedLyrics) && (isSynced(media_files[0].Lyrics)) {
 		r := regexp.MustCompile(TIMESTAMP_REGEX)
 		lyrics.Value = r.ReplaceAllString(media_files[0].Lyrics, "")
 	} else {

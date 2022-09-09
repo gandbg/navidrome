@@ -34,6 +34,7 @@ type configOptions struct {
 	ImageCacheSize          string
 	AutoImportPlaylists     bool
 	PlaylistsPath           string
+	SendUnsyncedLyrics	bool
 
 	SearchFullString       bool
 	RecentlyAddedByModTime bool
@@ -214,6 +215,7 @@ func init() {
 	viper.SetDefault("imagecachesize", "100MB")
 	viper.SetDefault("autoimportplaylists", true)
 	viper.SetDefault("playlistspath", consts.DefaultPlaylistsPath)
+	viper.SetDefault("SendUnsyncedLyrics", true)
 	viper.SetDefault("enabledownloads", true)
 	viper.SetDefault("enableexternalservices", true)
 
